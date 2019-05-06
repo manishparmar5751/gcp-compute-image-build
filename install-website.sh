@@ -4,9 +4,9 @@ sudo apt-get install -y python-opencv
 sudo apt install -y nginx  
 sudo apt-get install -y unicorn
 sudo apt-get install -y curl gnupg build-essential
-sudo apt-get install -y python-pip python-dev build-essential
-sudo pip install --upgrade pip
-pip install -r /req.txt
+sudo apt-get install -y python-pip python-dev
+# pip install --upgrade pip
+pip install -r quazi/req.txt
 # sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 # curl -sSL https://get.rvm.io | sudo bash -s stable
 # sudo usermod -a -G rvm `whoami`
