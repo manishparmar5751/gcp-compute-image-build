@@ -7,7 +7,7 @@
 
   tasks:
     - name: upgrade all packages
-      yum:
+      apt:
         name: '*'
         state: latest
 
