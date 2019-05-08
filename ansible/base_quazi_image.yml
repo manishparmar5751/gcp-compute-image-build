@@ -1,0 +1,15 @@
+---
+- name: Build Quazi Image
+  hosts: localhost
+  gather_facts: false
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+
+  roles:
+    - quazi

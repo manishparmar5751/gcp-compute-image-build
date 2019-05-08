@@ -1,0 +1,17 @@
+---
+# tasks file for quazi
+
+- name: install apt packages
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - python-opencv 
+    - nginx
+    - unicorn
+    - curl 
+    - gnupg 
+    - build-essential
+    - python-pip
+    - python-dev
+

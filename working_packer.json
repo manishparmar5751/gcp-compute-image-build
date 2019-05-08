@@ -1,11 +1,4 @@
 {
-  "provisioners": [
-    {
-      "type": "ansible",
-      "playbook_file": "ansible/base_quazi_image.yml",
-      "user": "jenkins"
-    }
-  ],
   "builders": [
         {
           "image_name": "{{user `image_family`}}-{{user `build_number`}}",
@@ -15,6 +8,7 @@
           "image_family": "{{user `image_family`}}",
           "ssh_username": "packer",
           "zone": "us-west1-b",
+          "startup_script_file": "install-website.sh",
           "scopes": [
             "https://www.googleapis.com/auth/userinfo.email",
             "https://www.googleapis.com/auth/compute",
