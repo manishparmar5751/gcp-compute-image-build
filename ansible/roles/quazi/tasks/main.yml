@@ -34,6 +34,25 @@
 #  shell: chdir=/opt/Python-2.7.12 make install
 #  sudo: yes
 
-- name: Install the packages specified in requirements.txt
-  pip: requirements=/tmp/workspace/ulta-image-hardening/quazi/req.txt
+- name: Install official ansible rvm role to install and manage your ruby versions
+  shell: ansible-galaxy install rvm.ruby
+
+- name: Configure servers with ruby support system wide
+  roles:
+    - { role: rvm.ruby,
+        tags: ruby,
+        become: yes,
+
+        rvm1_rubies: ['ruby-2.2.2','ruby-2.5.3'],
+        rvm1_install_flags: '--auto-dotfiles',     # Remove --user-install from defaults
+        rvm1_install_path: /usr/local/rvm,         # Set to system location
+        rvm1_bundler_install: True,                #Install the bundler gem
+        rvm1_user: root                            # Need root account to access system location
+      }
+
+- name: Install rails
+  shell: gem install rails -v 4.1.0
+
+# - name: Install the packages specified in requirements.txt
+#   pip: requirements=/tmp/workspace/ulta-image-hardening/quazi/req.txt
 
