@@ -35,7 +35,7 @@
 #  sudo: yes
 
 - name: Install official ansible rvm role to install and manage your ruby versions
-  shell: ansible-galaxy install rvm.ruby
+  shell: "ansible-galaxy install rvm.ruby"
 
 - name: Configure servers with ruby support system wide
   roles:
@@ -51,7 +51,7 @@
       }
 
 - name: Install rails
-  shell: gem install rails -v 4.1.0
+  shell: "gem install rails -v 4.1.0"
 
 # - name: Install the packages specified in requirements.txt
 #   pip: requirements=/tmp/workspace/ulta-image-hardening/quazi/req.txt
