@@ -10,6 +10,7 @@ sudo apt-get install -y software-properties-common
 sudo apt-add-repository -y ppa:rael-gc/rvm
 sudo apt update
 sudo apt install -y rvm
+echo '[[ -s "/usr/share/rvm/scripts/rvm" ]] && . "/usr/share/rvm/scripts/rvm" # Load RVM function' >> ~/.bashrc
 echo '[[ -s "/usr/share/rvm/scripts/rvm" ]] && . "/usr/share/rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
 source ~/.bash_profile
 rvm fix-permissions
