@@ -15,43 +15,8 @@
     - python-pip
     - python-dev
 
-# Install Python 2.7.12
-#- name: Download Python 2.7.12
-#  get_url: dest=/var/local/ansible-cache url=http://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz 
-#  sudo: yes
-
-#- name: Ensure Python 2.7.12 is extracted
-#  shell: chdir=/var/local/ansible-cache tar xJf ./Python-2.7.12.tar.xz -C /opt creates=/opt/Python-2.7.12
-#  sudo: yes
-
-#- name: Ensure Python 2.7 is configured
-#  shell: chdir=/opt/Python-2.7.12 ./configure --prefix=/opt/python2.7
-
-#- name: Ensure Python 2.7 make'd
-#  shell: chdir=/opt/Python-2.7.12 make
-
-#- name: Ensure Python 2.7 installed
-#  shell: chdir=/opt/Python-2.7.12 make install
-#  sudo: yes
-
 - name: Install official ansible rvm role to install and manage your ruby versions
-  shell: "ansible-galaxy install rvm.ruby"
-
-- name: Configure servers with ruby support system wide
-  roles:
-    - { role: rvm.ruby,
-        tags: ruby,
-        become: yes,
-
-        rvm1_rubies: ['ruby-2.2.2','ruby-2.5.3'],
-        rvm1_install_flags: '--auto-dotfiles',     # Remove --user-install from defaults
-        rvm1_install_path: /usr/local/rvm,         # Set to system location
-        rvm1_bundler_install: True,                #Install the bundler gem
-        rvm1_user: root                            # Need root account to access system location
-      }
-
-- name: Install rails
-  shell: "gem install rails -v 4.1.0"
+  command: ansible-galaxy install rvm.ruby
 
 # - name: Install the packages specified in requirements.txt
 #   pip: requirements=/tmp/workspace/ulta-image-hardening/quazi/req.txt

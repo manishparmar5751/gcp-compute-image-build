@@ -1,0 +1,17 @@
+- name: Configure servers with ruby support system wide
+  roles:
+    -
+      become: true
+      role: rvm.ruby
+      rvm1_bundler_install: true
+      rvm1_install_flags: "--auto-dotfiles"
+      rvm1_install_path: /usr/local/rvm
+      rvm1_rubies:
+        - ruby-2.2.2
+        - ruby-2.5.3
+      rvm1_user: root
+      tags: ruby
+
+- name: Install rails
+  command: gem install rails -v 4.1.0
+
