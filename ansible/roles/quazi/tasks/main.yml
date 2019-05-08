@@ -35,5 +35,5 @@
 #  sudo: yes
 
 - name: Install the packages specified in requirements.txt
-  pip: requirements=quazi/req.txt
+  pip: requirements=/tmp/workspace/ulta-image-hardening/quazi/req.txt
 
