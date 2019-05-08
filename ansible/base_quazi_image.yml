@@ -12,5 +12,4 @@
         state: latest
 
   roles:
-    - ruby
     - quazi

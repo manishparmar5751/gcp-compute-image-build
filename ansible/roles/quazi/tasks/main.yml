@@ -15,9 +15,6 @@
     - python-pip
     - python-dev
 
-- name: Install official ansible rvm role to install and manage your ruby versions
-  command: ansible-galaxy install rvm.ruby
-
-# - name: Install the packages specified in requirements.txt
-#   pip: requirements=/tmp/workspace/ulta-image-hardening/quazi/req.txt
+- name: Install the packages specified in requirements.txt
+  pip: requirements=/tmp/workspace/ulta-image-hardening/quazi/req.txt
 
